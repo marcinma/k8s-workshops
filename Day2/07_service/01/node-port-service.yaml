@@ -1,0 +1,1 @@
+kubectl expose pod myapp-pod --type=NodePort --port=80
