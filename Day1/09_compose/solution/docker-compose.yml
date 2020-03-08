@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  python-redis:
+    image: marcinmakowski/python-api:redis
+    volumes:
+      - ./:/usr/share/nginx/html/
+    ports:
+      - 5002:5002
+    depends_on: 
+      - redis
+  redis:
+    image: "redis"
