@@ -2,7 +2,7 @@
 
 1. Build nginx image from parent folder
 ```sh
-docker image build -t my-nginx -f my-nginx/Dockerfile nginx/
+docker image build -t my-nginx -f nginx/Dockerfile nginx/
 ```
 
 2. Run nginx container from previous step

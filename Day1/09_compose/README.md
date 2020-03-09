@@ -1,3 +1,8 @@
+# Compose
+
+Compose is a tool for defining and running multi-container Docker applications. It takes
+declrative approach to provide working containers with a managed sets.
+
 ```sh
 sudo apt install docker-compose
 ```
@@ -16,11 +21,10 @@ verify running service
 - create index.htm and mount with `volumes` in yaml to `/usr/share/nginx/html/`
 - use image `nginx:1.15.5`
 
-2. 
+2. Python service
 - add service with `my-python` image and expose on port `5002`
-- run single service `docker-compose run python`
-- scale service `docker-compose up -d --scale web=3`
 - add `depends_on:` to python to depend on redis
+- scale service `docker-compose up -d --scale web=3`
 - `docker-compose down` stops & removes all stuff (see help)
 - run single service `docker-compose up -d python`, should start redis
 - `docker-compose exec python-redis curl web` should access created index.html

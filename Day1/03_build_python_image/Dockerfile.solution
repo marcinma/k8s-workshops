@@ -1,7 +1,10 @@
-FROM marcinmakowski/python-api:base
+FROM python:3.7
 
 WORKDIR /usr/src/app
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY
 
 ENV LOG_LEVEL=INFO
 EXPOSE 5002
