@@ -1,4 +1,4 @@
-# Legacy - deployment+statefulset is the recommended way to set up replication
+# Legacy - deployment + replicaset is the recommended way to set up replication
 
 ```sh
 kubectl create -f rc.yml
