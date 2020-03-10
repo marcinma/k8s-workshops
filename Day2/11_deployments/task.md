@@ -26,6 +26,8 @@ env|grep TEST_ENV
 
 ```sh
 kubectl rollout undo deployment/nginx-deployment
+kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env updated"
+kubectl rollout undo deployment/nginx-deployment --to-revision=1
 kubectl exec -ti <container_name>  /bin/bash
 env|grep TEST_ENV
 ```

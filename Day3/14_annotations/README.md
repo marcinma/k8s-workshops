@@ -8,3 +8,8 @@ Are used for *non-identifying* information
   }
 }
 ```
+
+```sh
+kubectl annotate pod es-cluster-0 workshop.test=verified
+kubectl get pods es-cluster-0 -o jsonpath='{.metadata.annotations}'
+```

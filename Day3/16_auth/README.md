@@ -2,13 +2,18 @@ ref: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 
 kubectl -n kube-system describe secret default
 
-curl -k -H "Authorization: Bearer $token" https://172.18.126.9:6443/api
+`export token=`
+
+
+curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api
+curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api/v1
+
 
 
 # User
 
 openssl genrsa -out marcin.key 2048
-openssl req -new -key marcin.key -out marcin.csr -subj "/CN=marcin/O=mobees"
+openssl req -new -key marcin.key -out marcin.csr -subj "/CN=marcin/O=workshop"
 openssl x509 -req -in marcin.csr -CA ./ca.crt -CAkey ./ca.key -CAcreateserial -out marcin.crt -days 500
 
 
@@ -22,7 +27,7 @@ kubectl --context=marcin-context get pods
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: mobees
+  namespace: workshop
   name: deployment-manager
 rules:
 - apiGroups: ["", "extensions", "apps"]
@@ -35,7 +40,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: deployment-manager-binding
-  namespace: mobees
+  namespace: workshop
 subjects:
 - kind: User
   name: marcin

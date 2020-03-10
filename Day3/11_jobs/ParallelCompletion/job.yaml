@@ -16,7 +16,7 @@ spec:
       containers:
         - name: echo
           image: marcinmakowski/kubernetes:pod-creator.operator
-          command: ["/bin/echo 'test'"]
+          command: ["/bin/echo", "test"]
       restartPolicy: Never
 
 
