@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallel-consumer
+  labels:
+    project: workshop
+spec:
+  backoffLimit: 0
+  parallelism: 5
+  template:
+    metadata:
+      labels:
+        project: workshop
+    spec:
+      containers:
+        - name: consumer
+          image: marcinmakowski/kubernetes:python-redis-consumer-producer
+          env:
+            - name: REDIS_HOST
+              value: "external-redis"
+      restartPolicy: Never

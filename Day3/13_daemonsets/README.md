@@ -1,0 +1,1 @@
+kubectl rollout history daemonsets/nginx-ds

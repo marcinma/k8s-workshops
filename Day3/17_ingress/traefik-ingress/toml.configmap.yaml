@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-config
+  namespace: ingress-internal
+data:
+  traefik.toml: |
+    # traefik.toml
+    logLevel = "INFO"
+    debug = false
+    sendAnonymousUsage = false
+    defaultEntryPoints = ["http"]
+    [entryPoints]
+      [entryPoints.http]
+        address = ":80"
+        compress = true
+    [kubernetes]
+    [traefikLog]
+    [accessLog]
+    [metrics]
+      [metrics.prometheus]
+      [metrics.statistics]
+    [ping]
+    [api]
+    [retry]
+      attempts = 2
+
+   

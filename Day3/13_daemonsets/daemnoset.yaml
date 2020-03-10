@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: nginx-ds
+  labels:
+    app: ds
+spec:
+# updateStrategy:       # For Backward compatibility this field is not set
+#   type: RollingUpdate
+#   rollingUpdate:
+#     maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: ds
+  template:
+    metadata:
+      name: ds-pod
+      labels:
+        app: ds
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80

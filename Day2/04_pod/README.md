@@ -7,3 +7,7 @@ kubectl logs <pod-name>
 ```
 
 4. Describe pod
+
+```sh
+kubectl describe pod <pod-name>
+```
