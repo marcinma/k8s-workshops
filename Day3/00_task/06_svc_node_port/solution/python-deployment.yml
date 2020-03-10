@@ -25,3 +25,5 @@ spec:
             value: "DEBUG"
           - name: REDIS_HOST
             value: "redis-service"
+          - name: REDIS_PORT
+            value: "6379"
