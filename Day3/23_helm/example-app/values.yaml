@@ -8,11 +8,11 @@ postgresqlWriter:
   databases:
     customer-a:
       enabled: true
-      schedule: "* 30 * * *"
+      schedule: "* 20 * * *"
       restartPolicy: "OnFailure"
     customer-b:
       enabled: false
-      schedule: "* 35 * * *"
+      schedule: "* 20 * * *"
 
 
 postgresql:

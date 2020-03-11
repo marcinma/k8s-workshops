@@ -4,28 +4,28 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: writer.{{ $databaseName | lower }}
+  name: writer-{{ $databaseName | lower }}
   namespace: {{  $.Values.namespace }}
   labels:
-    project: mobees
+    project: workshops
     databaseName: {{ $databaseName }}
 spec:
   schedule: "{{ $database.schedule }}"
   jobTemplate:
     metadata:
       labels:
-        project: mobees
+        project: workshops
         databaseName: {{ $databaseName }}
     spec:
       template:
         metadata:
           labels:
-            project: mobees
+            project: workshops
             databaseName: {{ $databaseName }}
         spec:       
           restartPolicy: {{ default "Never" $database.restartPolicy }}
           containers:
-            - name: writer.{{ $databaseName | lower }}
+            - name: writer-{{ $databaseName | lower }}
               imagePullPolicy: "IfNotPresent"
               image: "{{  $.Values.imageRegistry }}/{{  $.Values.postgresqlWriter.image }}:{{  $.Values.postgresqlWriter.tag }}"
               resources:
