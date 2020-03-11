@@ -12,4 +12,11 @@ helm template --output-dir=./output --values ./production.values.yaml .
 
 ```sh
 helm install . --generate-name
+helm ls
+helm uninstall <>
+helm upgrade --install --atomic my-release .
+
+kubectl get all -n mynamespace
+kubectl get secrets -n mynamespace
+
 ```
