@@ -28,7 +28,7 @@ spec:
     - ReadWriteOnce
   storageClassName: local-storage
   nfs:
-    path: /var/nfs/general/03
+    path: /var/nfs/general/04
     server: 127.0.0.1
   persistentVolumeReclaimPolicy: Recycle
 

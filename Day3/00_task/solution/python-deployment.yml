@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: python-container
-        image: 127.0.0.1:5000/python-api:redis
+        image: marcinmakowski/python-api:redis
         ports:
           - containerPort: 5002
         env:
