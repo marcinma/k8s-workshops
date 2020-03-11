@@ -1,6 +1,7 @@
+```sh
 kubectl create configmap configuration --from-file=./
-
 kubectl get configmap/configuration -o yaml
+```
 
 # From env file
 ```sh
