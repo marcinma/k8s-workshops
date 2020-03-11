@@ -1,9 +1,3 @@
-# metric server required
-
-curl <clusterip_sv>
-
-watch kubectl get hpa
-watch kubectl get pods
 
 # Beta version
 

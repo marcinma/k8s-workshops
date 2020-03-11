@@ -20,10 +20,3 @@ spec:
         image: ewoutp/docker-nginx-curl
         ports:
           - containerPort: 80
-        resources:
-            limits:
-              cpu: 900m
-              memory: 500Mi
-            requests:
-              cpu: 100m
-              memory: 100Mi

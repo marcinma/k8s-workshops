@@ -1,8 +1,18 @@
 By default, pods are non-isolated
 An empty podSelector selects all pods in the namespace
 
-https://kubernetes.io/docs/concepts/services-networking/network-policies/
+## Create policy
 
+```sh
+kubectl create -f network-policy.yaml
+kubectl exec -ti nginx-ds-ml2vh curl nginx.default # wont work
+kubectl delete -f network-policy.yaml
+kubectl exec -ti nginx-ds-ml2vh curl nginx.default #  work
+
+```
+# Docs
+
+https://kubernetes.io/docs/concepts/services-networking/network-policies/
 https://kubernetes.io/docs/concepts/cluster-administration/networking/
 
 ## Deep into network

@@ -15,7 +15,7 @@ spec:
         app: sqrt
     spec:
       containers:
-        - name: busybox
+        - name: sqrt-php
           imagePullPolicy: IfNotPresent
           image: marcinmakowski/php:loadtest
           resources:
