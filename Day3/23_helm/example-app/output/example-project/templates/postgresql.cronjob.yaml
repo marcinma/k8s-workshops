@@ -1,0 +1,111 @@
+##---
+# Source: example-project/templates/postgresql.cronjob.yaml
+
+
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: writer.customer-a
+  namespace: mynamespace
+  labels:
+    project: mobees
+    databaseName: customer-a
+spec:
+  schedule: "* 30 * * *"
+  jobTemplate:
+    metadata:
+      labels:
+        project: mobees
+        databaseName: customer-a
+    spec:
+      template:
+        metadata:
+          labels:
+            project: mobees
+            databaseName: customer-a
+        spec:       
+          restartPolicy: OnFailure
+          containers:
+            - name: writer.customer-a
+              imagePullPolicy: "IfNotPresent"
+              image: "127.0.0.1:5000/postgresql-writer:release-1"
+              resources:
+                requests:
+                  cpu: "100m"
+                limits:
+                  cpu: "500m"
+              env:                     
+                - name: TIMESCALEDB_DATABASE_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: timescaledb
+                      key: timescaleDBdbname
+                - name: POSTGRES_HOST
+                  value: postgresql.other-namespace                
+                - name: POSTGRES_PORT
+                  value: "5432"
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgresql
+                      key: password
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgresql
+                      key: username
+
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: writer.customer-b
+  namespace: mynamespace
+  labels:
+    project: mobees
+    databaseName: customer-b
+spec:
+  schedule: "* 35 * * *"
+  jobTemplate:
+    metadata:
+      labels:
+        project: mobees
+        databaseName: customer-b
+    spec:
+      template:
+        metadata:
+          labels:
+            project: mobees
+            databaseName: customer-b
+        spec:       
+          restartPolicy: Never
+          containers:
+            - name: writer.customer-b
+              imagePullPolicy: "IfNotPresent"
+              image: "127.0.0.1:5000/postgresql-writer:release-1"
+              resources:
+                requests:
+                  cpu: "100m"
+                limits:
+                  cpu: "500m"
+              env:                     
+                - name: TIMESCALEDB_DATABASE_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: timescaledb
+                      key: timescaleDBdbname
+                - name: POSTGRES_HOST
+                  value: postgresql.other-namespace                
+                - name: POSTGRES_PORT
+                  value: "5432"
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgresql
+                      key: password
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgresql
+                      key: username

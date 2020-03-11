@@ -1,9 +1,0 @@
-https://github.com/ContainerSolutions/k8s-deployment-strategies
-
-# updateStrategy:       # For Backward compatibility this field is not set
-#   type: RollingUpdate
-#   rollingUpdate:
-#     maxUnavailable: 1
-
-readines probe
-livenes probe
