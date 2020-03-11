@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqrt-generator
+  labels:
+    app: sqrt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqrt
+  template:
+    metadata:
+      labels:
+        app: sqrt
+    spec:
+      containers:
+        - name: busybox
+          imagePullPolicy: IfNotPresent
+          image: marcinmakowski/php:loadtest
+          resources:
+            limits:
+              cpu: "10m"
+              memory: "10Mi"
+            requests:
+              cpu: "10m"
+              memory: "10Mi"

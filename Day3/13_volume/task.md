@@ -29,6 +29,9 @@ docker image tag <image> <registry-address>:<port>/<image>
   "experimental": false
 }
 ```
+
+restart docker
+
 5. Push image to new registry
 
 ```sh

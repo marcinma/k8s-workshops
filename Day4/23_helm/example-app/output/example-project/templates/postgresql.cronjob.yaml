@@ -9,20 +9,20 @@ metadata:
   name: writer.customer-a
   namespace: mynamespace
   labels:
-    project: mobees
+    project: workshops
     databaseName: customer-a
 spec:
   schedule: "* 30 * * *"
   jobTemplate:
     metadata:
       labels:
-        project: mobees
+        project: workshops
         databaseName: customer-a
     spec:
       template:
         metadata:
           labels:
-            project: mobees
+            project: workshops
             databaseName: customer-a
         spec:       
           restartPolicy: OnFailure
@@ -63,20 +63,20 @@ metadata:
   name: writer.customer-b
   namespace: mynamespace
   labels:
-    project: mobees
+    project: workshops
     databaseName: customer-b
 spec:
   schedule: "* 35 * * *"
   jobTemplate:
     metadata:
       labels:
-        project: mobees
+        project: workshops
         databaseName: customer-b
     spec:
       template:
         metadata:
           labels:
-            project: mobees
+            project: workshops
             databaseName: customer-b
         spec:       
           restartPolicy: Never
