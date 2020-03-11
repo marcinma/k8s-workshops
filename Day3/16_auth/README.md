@@ -4,10 +4,10 @@ kubectl -n kube-system describe secret default
 
 `export token=`
 
-
+```sh
 curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api
 curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api/v1
-
+```
 
 
 # User
