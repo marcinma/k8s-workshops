@@ -23,7 +23,7 @@ kubectl edit deployment metrics-server -n kube-system
 
 ```yml
     args:
-    --cert-dir=/tmp
+    - --cert-dir=/tmp
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
     - --kubelet-insecure-tls
     - --metric-resolution=30s
