@@ -20,10 +20,10 @@ helm ls
 kubectl config set-context --current=true --namespace=mynamespace
 kubectl get all
 
+kubectl config set-context --current=true --namespace=default
 helm uninstall <>
 helm upgrade --install --atomic my-release .
 
-kubectl config set-context --current=true --namespace=default
 kubectl get all -n mynamespace
 kubectl get secrets -n mynamespace
 
