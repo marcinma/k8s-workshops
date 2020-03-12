@@ -26,6 +26,7 @@ kubectl edit deployment metrics-server -n kube-system
     - --cert-dir=/tmp
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
     - --kubelet-insecure-tls
+    - --secure-port=4443
     - --metric-resolution=30s
 
 dnsPolicy: ClusterFirst
