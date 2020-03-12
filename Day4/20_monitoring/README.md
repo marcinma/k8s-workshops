@@ -19,8 +19,7 @@ minikube addons enable metrics-server
 git clone https://github.com/kubernetes-sigs/metrics-server
 kubectl apply -f metrics-server/deploy/kubernetes/
 ```
-
-kubectl edit
+kubectl edit deployment metrics-server -n kube-system
 
 ```yml
     args:
