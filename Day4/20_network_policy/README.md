@@ -4,9 +4,9 @@ An empty podSelector selects all pods in the namespace
 ## Create policy
 
 ```sh
-kubectl create -f network-policy.yaml
+kubectl create -f deny.network.policy.yaml
 kubectl exec -ti nginx-ds-ml2vh curl nginx.default # wont work
-kubectl delete -f network-policy.yaml
+kubectl delete -f deny.network.policy.yaml
 kubectl exec -ti nginx-ds-ml2vh curl nginx.default #  work
 
 ```
