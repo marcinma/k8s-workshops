@@ -1,5 +1,6 @@
 docker run \
   --volume=/:/rootfs:ro \
+   --network=monitoring \
   --volume=/var/run:/var/run:ro \
   --volume=/sys:/sys:ro \
   --volume=/var/lib/docker/:/var/lib/docker:ro \

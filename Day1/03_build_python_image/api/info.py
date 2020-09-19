@@ -39,7 +39,8 @@ def info_post():
     previous = r.get('counter')
     if previous is None:
         r.set('counter', 1)
-    r.incr('counter')
+    else:
+        r.incr('counter')
 
     response = APP.response_class(
         response="OK",
