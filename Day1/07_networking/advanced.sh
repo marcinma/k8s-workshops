@@ -1,5 +1,5 @@
 docker container run --network none -d --name nonet ewoutp/docker-nginx-curl
-docker container exec -ti  curl google.com
+docker container exec -ti nonet curl google.com
 
 docker container run --network bridge -d --name bridgenet ewoutp/docker-nginx-curl
 docker container exec -ti bridgenet curl google.com

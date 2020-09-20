@@ -24,6 +24,7 @@ docker container exec -ti <container_name> /bin/sh
 Create `.dockerignore`
 
 ```.dockerignore
+Dockerfile
 password
 ```
 
@@ -32,8 +33,8 @@ password
 ```sh
 docker image build -t my-nginx:1 -f nginx/Dockerfile nginx/
 ```
-
-2. Password file is no longe there
+2. Run container one more time
+3. Verify that password file is no longe there
 
 # Forward port
 
@@ -74,6 +75,8 @@ access port
 ```sh
 curl localhost:32768
 ```
+
+4. Finaly remove containers created in this task
 
 
 

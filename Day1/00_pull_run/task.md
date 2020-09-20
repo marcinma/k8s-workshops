@@ -10,8 +10,6 @@ docker image pull hello-world
 
 ```sh
 docker container run --name <myname> --label=type=workshop hello-world
-
-
 ```
 
 ## List all containers

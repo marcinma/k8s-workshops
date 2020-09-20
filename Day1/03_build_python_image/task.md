@@ -1,7 +1,7 @@
-# Build new image
+# Create new Dockerfile on your own 
 
 - Use base image `python:3.7`
-- Set working dir to /usr/src/app
+- Set working dir (`Workdir`) to `/usr/src/app`
 - execute command in image `pip install --no-cache-dir -r requirements.txt`
 - allow port access on `5002`
 - copy main.py & requirements.txt files
@@ -10,13 +10,14 @@
 - run command `python` and `main.py`
 
 # Run container form builded image
-Verify with curl endpoint
+1. Check container port
+2. Verify with curl endpoint
 
-`curl localhost:32770/healthz`
+`curl localhost:<port_number>/healthz`
 
 # Connect apps
 
-1. Run container from image redis and expose it on port 6379 targeting 6379 port in container
+1. Run container from image `redis` and expose it on port 6379 targeting 6379 port in container
 2. Run python one more time with env parameter
 
 `docker container run -e REDIS_HOST=<host_ip> -d -P my-python`

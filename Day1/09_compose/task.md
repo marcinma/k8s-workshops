@@ -1,7 +1,7 @@
 # Compose
 
 Compose is a tool for defining and running multi-container Docker applications. It takes
-declrative approach to provide working containers with a managed sets.
+declarative approach to provide working containers with a managed sets.
 
 ```sh
 sudo apt install docker-compose

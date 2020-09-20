@@ -73,6 +73,8 @@ kubeadm init --pod-network-cidr=192.168.0.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
 kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 ```
 
@@ -91,13 +93,6 @@ kubectl get pods --all-namespaces
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/master-
-```
-
-```sh
-scp ubuntu@172.18.111.70:~/.kube/config .
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x kubectl
-./kubectl --kubeconfig config get pods -A
 ```
 
 # Reset
