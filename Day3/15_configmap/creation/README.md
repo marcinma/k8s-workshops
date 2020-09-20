@@ -21,6 +21,7 @@ kubectl get configmap/test-config -o yaml
 ```sh
 kubectl create -f pod-config.yaml
 kubectl logs configmap-pod
+kubectl logs configmap-pod | grep line
 ```
 
 ```sh
@@ -31,5 +32,6 @@ kubectl logs configmap-volume-pod
 # Autoupdates for mounted configmaps
 ```sh
 kubectl edit configmap configuration
+# change service-b.config
 kubectl logs -f configmap-volume-pod
 ```

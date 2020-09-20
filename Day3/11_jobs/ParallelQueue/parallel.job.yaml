@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         project: workshop
+        type: consumer
     spec:
       containers:
         - name: consumer

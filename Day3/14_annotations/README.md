@@ -10,6 +10,8 @@ Are used for *non-identifying* information
 ```
 
 ```sh
-kubectl annotate pod es-cluster-0 workshop.test=verified
-kubectl get pods es-cluster-0 -o jsonpath='{.metadata.annotations}'
+
+kubectl annotate pod  $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') workshop.test=verified
+kubectl get pods $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}')  -o jsonpath='{.metadata.annotations}'
+kubectl describe pods $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}')  
 ```

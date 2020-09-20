@@ -1,9 +1,8 @@
 Make sure nfs can be mounted (DNS resolution)
 
 ```sh
-sudo apt install nfs-kernel-server
-sudo mkdir /var/nfs/general -p
-sudo mkdir /var/nfs/general/00
+sudo apt install nfs-common nfs-kernel-server cifs-utils -y
+sudo mkdir /var/nfs/general/00 -p
 sudo mkdir /var/nfs/general/01
 sudo chown -R nobody:nogroup /var/nfs/general
 
@@ -27,6 +26,6 @@ sudo apt install nfs-common
 sudo apt install cifs-utils
 ```
 
-1. create index.html on /var/nfs/general/01
+1. create index.html on /var/nfs/general/00
 2. Expose NodePort
 3. Verify your index
