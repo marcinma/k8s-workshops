@@ -20,6 +20,6 @@ spec:
         image: ewoutp/docker-nginx-curl
         ports:
           - containerPort: 80
-        env:
-          - name: TEST_ENV
-            value: "23"
+        #env:
+        #  - name: TEST_ENV
+        #    value: "23"

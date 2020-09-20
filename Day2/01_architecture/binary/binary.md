@@ -1,9 +1,11 @@
-https://dl.k8s.io/v1.14.0/kubernetes-server-linux-amd64.tar.gz
+```sh
+wget https://dl.k8s.io/v1.14.0/kubernetes-server-linux-amd64.tar.gz
 tar -xzvf kubernetes-server-linux-amd64.tar.gz
 sudo mkdir -p /etc/kubernetes/manifests
 sudo swapoff -a  
 
 kubelet –pod-manifest-path /etc/kubernetes/manifests &> /etc/kubernetes/kubelet.log &
+```
 
 /etc/kubernetes/manifests
 pod.yaml
@@ -39,18 +41,16 @@ spec:
 ```
 
 
-
-https://github.com/etcd-io/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
+```sh
+wget https://github.com/etcd-io/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
 tar -xzvf etcd-v3.3.13-linux-amd64.tar.gz
 # cp etcd etcdctl /usr/bin
 etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://localhost:2379 &> /etc/kubernetes/etcd.log  &
+```
 
 # CONSIDER CLUSTERING!
 
 ```sh
-# kube-apiserver --etcd-servers=http://localhost:2379 --service-cluster-ip-range=10.0.0.0/16 --bind-address=0.0.0.0 --insecure-bind-address=0.0.0.0 &> /etc/kubernetes/api-server.log  &
-
-
 kube-apiserver --etcd-servers=http://localhost:2379 --service-cluster-ip-range=10.0.0.0/16 --bind-address=0.0.0.0 --insecure-bind-address=0.0.0.0 --disable-admission-plugins=NamespaceLifecycle,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota &> /etc/kubernetes/api-server.log  &
 ```
 

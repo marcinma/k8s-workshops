@@ -6,3 +6,4 @@
 - https://github.com/ahmetb/kubectx
 or
 - https://github.com/derailed/k9s
+https://learnk8s.io/production-best-practices/

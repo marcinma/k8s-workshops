@@ -15,8 +15,9 @@ kubectl get pods -l environment=production,tier=frontend
 kubectl get pods -A -l 'tier in(control-plane)'
 kubectl get pods -A -l 'tier in(control-plane),component notin(kube-scheduler)'
 
-kubectl label pod/nginx-d8whw test-label=my-label
+kubectl label pod/myapp-pod test-label=my-label
 kubectl get pods -l test-label=my-label
+kubectl get pods -l 'test-label in (my-label)'
 ```
 
 # Resources for set based selectors

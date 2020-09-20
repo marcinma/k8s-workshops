@@ -12,3 +12,7 @@ https://github.com/ContainerSolutions/k8s-deployment-strategies
 5. Create service for this deployment
 6. Create ingress attached to this service
 7. Access through browser, traffic should hit both of them 50% of time
+
+## Advanced
+only the Deployment's Pod template part is rolled back
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.16.1

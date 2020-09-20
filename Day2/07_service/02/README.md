@@ -1,7 +1,3 @@
-Advanced scenario, sticky routing:
-
-service.spec.sessionAffinity: ClusterIP
-service.spec.sessionAffinityConfig.clientIP.timeoutSeconds #default 3h
 
 # Default ENV exposed example
 

@@ -30,19 +30,19 @@ kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}'
 
 Gell all logs
 
-```
+```sh
 kubectl logs -l app=myapp
 ```
 
 Some hardcore stuff
 
-```
+```sh
 kubectl delete svc --all
 ```
 
 List all Persistent Volumes sorted by their name
 
-```
+```sh
 kubectl get pv | grep -v NAME | sort -k 2 -rh
 ```
 

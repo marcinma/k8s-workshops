@@ -7,7 +7,7 @@ kubectl get pods
 ```
 
 # Use env variable
-add `env` list
+uncomment  `env` list
 ```sh
 kubectl apply -f .\deployment.yaml
 

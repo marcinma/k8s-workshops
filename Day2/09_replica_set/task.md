@@ -5,7 +5,7 @@
 3. Tag previous builded image and push it
 
 ```sh
-docker image tag my-pathon 127.0.0.1:3200/my-python
+docker image tag my-python 127.0.0.1:3200/my-python
 docker image push 127.0.0.1:3200/my-python
 ```
 
