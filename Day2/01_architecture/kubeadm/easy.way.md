@@ -95,7 +95,7 @@ sudo systemctl restart docker.service
 ````
 
 ```sh
-kubeadm init --pod-network-cidr=192.168.0.0/16
+kubeadm init --pod-network-cidr=192.168.1.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -124,8 +124,8 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 # Reset
 
 ```sh
-kubeadm reset
-iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+sudo kubeadm reset
+sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
 ```
 
 # In case of issues 

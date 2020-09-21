@@ -4,9 +4,8 @@ metadata:
   name: my-pod-reader
   labels:
     app: my-pod-reader
-    spec:
-      serviceAccountName: pods-reader
-      containers:
-        - name: echo
-          image: marcinmakowski/kubernetes:pod-creator.operator
-          command: ["/bin/kubectr", "get", "pods"]
+spec:
+  serviceAccountName: pods-reader
+  containers:
+    - name: echo
+      image: ewoutp/docker-nginx-curl

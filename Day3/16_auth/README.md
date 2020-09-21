@@ -1,4 +1,17 @@
+# Docs
 ref: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+
+# Creation
+
+kubectl create -f sa.pod-reader.yaml
+kubectl create -f cluster-role.yaml
+kubectl create -f rbac.yaml
+kubectl create -f pod.yml
+
+# Get the ServiceAccount token from within the Pod's container
+TOKEN=$(cat /run/secrets/kubernetes.io/serviceaccount/token)
+curl -H "Authorization: Bearer $TOKEN" https://kubernetes/api/v1/namespaces/default/pods/ --insecure
+#
 
 kubectl -n kube-system describe secret default
 
