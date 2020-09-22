@@ -94,8 +94,22 @@ sudo systemctl enable docker.service
 sudo systemctl restart docker.service
 ````
 
+# Prepare node
+ /etc/resolv.conf
+```
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
 ```sh
-kubeadm init --pod-network-cidr=192.168.0.0/16
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+# Install
+
+```sh
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=<IP>
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -114,12 +128,25 @@ sudo kubeadm join 172.18.111.70:6443 --token
 ```sh
 kubectl get pods --all-namespaces
 ```
+# Find token
+
+```sh
+kubeadm token create --print-join-command
+```
 
 # allow shedule on control plane
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
+# Bug with CoreDNS
+
+```sh
+kubectl -n kube-system get deployment coredns -o yaml | \
+  sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | \
+  kubectl apply -f -
+```
+
 
 # Reset
 

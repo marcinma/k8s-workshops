@@ -53,5 +53,5 @@ kubectl get pod <name> -o yaml > pod.yml
 ```
 
 ```sh
-kubetctl get all
+kubectl get all
 ```
