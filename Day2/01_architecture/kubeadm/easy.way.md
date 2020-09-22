@@ -58,6 +58,23 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 ```
 
+edit /etc/docker/daemon.json
+```json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+```
+
+```sh
+sudo systemctl enable docker.service
+sudo systemctl restart docker.service
+````
+
 # Kubeadm
 
 ```sh
@@ -79,22 +96,7 @@ sudo apt install -y kubelet=1.15.1-00 kubeadm=1.15.1-00 kubectl=1.15.1-00 kubern
 sudo apt-mark hold kubelet=1.15.1-00 kubeadm=1.15.1-00 kubectl=1.15.1-00 kubernetes-cni=0.7.5-00
 ```
 
-edit /etc/docker/daemon.json
-```json
-{
-  "exec-opts": ["native.cgroupdriver=systemd"],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "100m"
-  },
-  "storage-driver": "overlay2"
-}
-```
 
-```sh
-sudo systemctl enable docker.service
-sudo systemctl restart docker.service
-````
 
 # Prepare node
  /etc/resolv.conf
@@ -109,6 +111,8 @@ sudo systemctl restart docker
 ```
 
 # Install
+
+`Make sure CIDR doesn't clash with host ip range!`
 
 ```sh
 kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=<IP>
