@@ -6,8 +6,6 @@ services:
     image: nginx:1.15.5
   python-redis:
     image: marcinmakowski/python-api:redis
-    volumes:
-      - ./:/usr/share/nginx/html/
     ports:
       - 5002:5002
     depends_on: 

@@ -9,7 +9,7 @@
 
 access its endpont:
 ```sh
-curl http://172.18.111.71:31690/v2/_catalog
+curl http://192.168.0.171:31690/v2/_catalog
 ```
 you should receive empty response
 
@@ -24,7 +24,7 @@ docker image tag <image> <registry-address>:<port>/<image>
 ```json
 {
   "registry-mirrors": [],
-  "insecure-registries": ["172.18.111.71:31690"],
+  "insecure-registries": ["192.168.0.171:31690"],
   "debug": true,
   "experimental": false
 }
@@ -42,7 +42,7 @@ docker image push <registry-address>:<port>/<image>
 
 access its endpont:
 ```sh
-curl http://172.18.111.71:31690/v2/_catalog
+curl http://192.168.0.171:31690/v2/_catalog
 ```
 7. delete registry pod
 8. After new pod is created you should still see registry images

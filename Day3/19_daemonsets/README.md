@@ -1,1 +1,2 @@
-kubectl rollout history daemonsets/nginx-ds
+kubectl apply -f .
+kubectl apply -f .

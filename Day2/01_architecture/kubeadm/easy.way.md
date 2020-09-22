@@ -37,7 +37,7 @@ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
 sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
 ```
-# Docker & Kubeadm
+# Docker 
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 ```sh
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -57,6 +57,8 @@ sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
 ```
+
+# Kubeadm
 
 ```sh
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf

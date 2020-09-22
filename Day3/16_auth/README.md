@@ -11,6 +11,7 @@ kubectl create -f pod.yml
 # Get the ServiceAccount token from within the Pod's container
 TOKEN=$(cat /run/secrets/kubernetes.io/serviceaccount/token)
 curl -H "Authorization: Bearer $TOKEN" https://kubernetes/api/v1/namespaces/default/pods/ --insecure
+
 #
 
 kubectl -n kube-system describe secret default
@@ -18,9 +19,10 @@ kubectl -n kube-system describe secret default
 `export token=`
 
 ```sh
-curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api
-curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api/v1
-curl -k -H "Authorization: Bearer $token" https://172.18.111.70:6443/api/v1/namespaces/default/pods
+TOKEN=$(kubectl exec -ti my-pod-reader -- cat /run/secrets/kubernetes.io/serviceaccount/token)
+curl -k -H "Authorization: Bearer $TOKEN" https://192.168.0.170:6443/api
+curl -k -H "Authorization: Bearer $TOKEN" https://192.168.0.170:6443/api/v1
+curl -k -H "Authorization: Bearer $TOKEN" https://192.168.0.170:6443/api/v1/namespaces/default/pods
 ```
 
 
