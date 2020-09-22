@@ -27,7 +27,7 @@ verify running service
 - scale service `docker-compose up -d --scale web=3`
 - `docker-compose down` stops & removes all stuff (see help)
 - run single service `docker-compose up -d python`, should start redis
-- `docker-compose exec python-redis curl web` should access created index.html
+- `docker-compose exec python curl web` should access created index.html
 - `docker-compose logs`
 - `docker-compose logs -f web`
 

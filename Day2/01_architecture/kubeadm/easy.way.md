@@ -95,7 +95,7 @@ sudo systemctl restart docker.service
 ````
 
 ```sh
-kubeadm init --pod-network-cidr=192.168.1.0/16
+kubeadm init --pod-network-cidr=192.168.0.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
