@@ -2,7 +2,13 @@ Setup multinode simple:
 
 1. 
 ``sh
-sudo apt install openssh-server -y
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common  openssh-server -y
+
 sudo vim /etc/netplan/01-netcfg.yaml
 
 ```
@@ -41,12 +47,6 @@ sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 ```sh
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
 
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -115,7 +115,7 @@ sudo systemctl restart docker
 `Make sure CIDR doesn't clash with host ip range!`
 
 ```sh
-kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=<IP>
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=<IP>
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
