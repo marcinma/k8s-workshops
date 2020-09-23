@@ -13,4 +13,5 @@ kubectl get podcreators
 kubectl apply -f bash-operator/example
 kubectl get podcreators
 kubectl get pod
+kubectl get po | grep marcin
 ```
