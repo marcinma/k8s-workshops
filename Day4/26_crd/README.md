@@ -12,6 +12,7 @@ kubectl get podcreators
 ```sh
 kubectl apply -f bash-operator/example
 kubectl get podcreators
+ubectl logs -l app=pod-creator
 kubectl get pod
 kubectl get po | grep marcin
 ```
