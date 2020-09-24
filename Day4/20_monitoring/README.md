@@ -10,7 +10,7 @@ kubectl edit deployment metrics-server -n kube-system
 
 ```yml
     command:
-    - - /metrics-server 
+    - /metrics-server 
     - --kubelet-preferred-address-types=InternalIP
     - --kubelet-insecure-tls
     - --secure-port=4443
