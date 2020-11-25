@@ -1,7 +1,7 @@
 Setup multinode simple:
 
 1. 
-``sh
+```sh
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -9,10 +9,9 @@ sudo apt-get install \
     gnupg-agent \
     software-properties-common  openssh-server -y
 
-sudo vim /etc/netplan/01-netcfg.yaml
 
 ```
-
+sudo vim /etc/netplan/01-netcfg.yaml
 ```yml
 network:
   version: 2
