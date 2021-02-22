@@ -1,4 +1,4 @@
-- kubectl apply -f pod.yaml
+- kubectl apply -f pod.yml
 - kubectl get pods
 - kubectl get pods -A
 - kubectl get all
