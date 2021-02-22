@@ -1,2 +1,2 @@
 #!/bin/bash
-docker container port mynginx
+docker container port my-nginx

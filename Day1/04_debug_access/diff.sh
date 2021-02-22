@@ -1,2 +1,2 @@
 #!/bin/bash
-docker container diff mynginx
+docker container diff my-nginx

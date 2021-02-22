@@ -1,2 +1,2 @@
 #!/bin/bash
-docker container top mynginx
+docker container top my-nginx
