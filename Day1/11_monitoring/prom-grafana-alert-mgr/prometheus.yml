@@ -20,4 +20,4 @@ scrape_configs:
   - job_name: 'cadvisor'
     scrape_interval: 5s
     static_configs:
-       - targets: ['http://192.168.0.176:8080']
+       - targets: ['192.168.0.176:8080']
